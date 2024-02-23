@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="bg-primary text-center text-white ">Employee Database Capstone Project-1</h1>
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="text-uppercase bg-secondary text-white">
+          <tr>
+            <th>SNo</th>
+            <th>FullName</th>
+            <th>Designation</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody class="bg-light">
+
+         {% for x in employees %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td><a href="{% url "employee_detail" x.id %}">{{x.first_name}} {{x.last_name}}</td></a>
+            <td>{{x.designation}}</td>
+            <td>{{x.phone_number}}</td>
+          </tr>
+         {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  <footer class="bg-warning text-center p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Copyright &copy; 2024, Employee Database</h3>
+                <h6>All Rights Reserved</h6>
+                <h6>Developed and Maintained By Sai Neeraj Gunturu</h6>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
